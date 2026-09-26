@@ -1,0 +1,7 @@
+out-voice/
+*.log
+.env
+__pycache__/
+.claude/
+.venv/
+score.lock
