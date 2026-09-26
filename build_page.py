@@ -66,7 +66,7 @@ FINDINGS = [
     {"k": "verdict", "t": "Runners-up for the bot: ElevenLabs v3 Conversational and Inworld TTS-2.",
      "p": "v3 Conversational: 0.56 s, kids' line 5/5, real acting (−6.3 / +8.0 dB) — but Retell doesn't offer it. Inworld TTS-2: on Retell, kids' line 5/5, Hinglish 5/5, 1.38 s, $0.0225/min. ElevenLabs Flash v2.5 is fastest (0.34 s) but its kids' line scored 2/5."},
     {"k": "verdict", "t": "Open-source is not yet close for Hindi on a 16 GB Mac. VoxCPM2 is the one to watch.",
-     "p": "On the Mac: VoxCPM2 natural 4.0/5 but 8× slower than real time (9 GB peak); Chatterbox 2.75/5; Kokoro 1.4/5 (fast but robotic Hindi). Both cloning models kept the same voice across emotions (5/5). VoxCPM2's full-size online demo scored 4.67/5 on 3 clips — it needs a GPU server, not a laptop."},
+     "p": "On the Mac: VoxCPM2 natural 4.0/5 but 8× slower than real time (9 GB peak); Chatterbox 2.75/5; Kokoro 1.4/5 (fast but robotic Hindi). Both cloning models kept the same voice across emotions (5/5), but open models failed the numbers line (VoxCPM2 1/5, rumik 1/5). VoxCPM2's full-size online demo scored 4.67/5 on 3 clips — it needs a GPU server, not a laptop."},
     {"k": "verdict", "t": "Indian open model rumik nailed the kids' line (5/5) but failed numbers and is non-commercial.",
      "p": "AI listener on V7: 'perfectly captures the warm, cheerful tone needed for a child'; V6 numbers 1/5; licence CC-BY-NC-4.0. 8× slower than real time on the Mac."},
     {"k": "verdict", "t": "Sarvam (India) is best at numbers and calm narration, but it can't act and stumbles on romanised Hinglish.",
