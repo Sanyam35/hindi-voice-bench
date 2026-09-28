@@ -60,7 +60,36 @@ def log(rec):
         fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
 
+def say(name, text, who="raghu", style=None):
+    """Try any line: .venv/bin/python local_bench.py voxcpm2 --say "..." [--voice dadi] [--style "angry"]"""
+    cfg = MODELS[name]
+    t0 = time.time()
+    model = load_model(cfg["repo"])
+    print("loaded in %.1fs" % (time.time() - t0), flush=True)
+    kw = dict(cfg["kw"]("V1"))
+    if style:
+        kw["instruct"] = style
+    if cfg.get("clone"):
+        from mlx_audio.utils import load_audio
+        ref, ref_text = (DADI, DADI_TEXT) if who == "dadi" else (RAGHU, RAGHU_TEXT)
+        kw.update(ref_audio=load_audio(ref, sample_rate=model.sample_rate), ref_text=ref_text)
+    t1 = time.time()
+    chunks = [np.array(r.audio) for r in model.generate(text=text, verbose=False, **kw)]
+    audio = np.concatenate(chunks)
+    os.makedirs(os.path.join(OUT, "_try"), exist_ok=True)
+    path = os.path.join(OUT, "_try", "%s-%s.wav" % (name, time.strftime("%H%M%S")))
+    audio_write(path, audio, model.sample_rate, format="wav")
+    dur = len(audio) / float(model.sample_rate)
+    print("made %.1fs of speech in %.1fs -> %s" % (dur, time.time() - t1, path), flush=True)
+    if not os.environ.get("NO_PLAY"):
+        os.system('afplay "%s"' % path)
+
+
 def main():
+    if "--say" in sys.argv:
+        a = sys.argv
+        get = lambda f, d=None: a[a.index(f) + 1] if f in a else d
+        return say(a[1], get("--say"), get("--voice", "raghu"), get("--style"))
     name = sys.argv[1]
     cfg = MODELS[name]
     todo = [pid for pid in cfg["lines"] if not os.path.exists(os.path.join(OUT, cfg["key"], pid + ".wav"))]

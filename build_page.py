@@ -57,10 +57,10 @@ METRICS = [
 
 # Plain-English findings. Each carries its proof (file, number or source). Edited by hand after every run.
 FINDINGS = [
-    {"k": "verdict", "t": "Kahiyo drama: Gemini 3.8 Flash-Lite TTS leads this test, at a tenth of ElevenLabs v3's price.",
-     "p": "AI listener: natural 4.75/5, acting 4.67/5, 95% of checklist items. Measured: whisper 10.3 dB quieter and anger 7.3 dB louder than the calm line; laugh + sigh on cue. $0.009/min vs $0.09 for ElevenLabs v3. Caveat: the AI listener is also Google's — confirm with your blind votes."},
+    {"k": "verdict", "t": "Kahiyo drama: Gemini 3.8 Flash-Lite TTS leads this test, at about a quarter of ElevenLabs v3's price.",
+     "p": "AI listener: natural 4.75/5, acting 4.67/5, 95% of checklist items. Measured: whisper 10.3 dB quieter and anger 7.3 dB louder than the calm line; laugh + sigh on cue. ~$0.015/min (Google's own usage meter on our calls) vs ~$0.065/min for ElevenLabs v3 at API list price. Caveat: the AI listener is also Google's — confirm with your blind votes."},
     {"k": "verdict", "t": "ElevenLabs v3 (Kahiyo's current model) does act, but the AI listener found it the least natural of the paid leaders.",
-     "p": "Measured: whisper −4.4 dB, anger +5.9 dB (real changes). AI listener: natural 3.4/5, acting 1.3/5 ('flat', 'robotic' on V4), kids' line 3/5. Costs the most at $0.09/min. Where loudness and the AI disagree, your ears decide."},
+     "p": "Measured: whisper −4.4 dB, anger +5.9 dB (real changes). AI listener: natural 3.4/5, acting 1.3/5 ('flat', 'robotic' on V4), kids' line 3/5. Costs the most: ~$0.065/min at API list price. Where loudness and the AI disagree, your ears decide."},
     {"k": "verdict", "t": "MyWonder on Retell: Cartesia Sonic 3.6 is the best fit — fast, clear, perfect numbers, warm kids' line.",
      "p": "First sound 0.48 s from India (median of 3), natural 4.25/5, numbers checklist 100%, kids' line 5/5, on Retell at +$0.015/min. Weak at acting (whisper +0.5 dB) — Cartesia's emotion control is English-only — which matters little for a bot."},
     {"k": "verdict", "t": "Runners-up for the bot: ElevenLabs v3 Conversational and Inworld TTS-2.",

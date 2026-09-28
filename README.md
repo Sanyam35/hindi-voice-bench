@@ -26,7 +26,7 @@ Google voices, and it is not a native Hindi ear — blind human votes are the fi
 
 | Use | Leader on this test | Why (numbers from `scores.jsonl`, `receipts.jsonl`, `qa.json`) |
 |---|---|---|
-| Hindi audio drama | Gemini 3.8 Flash-Lite TTS | natural 4.75/5, acting 4.67/5, whisper −10.3 dB / anger +7.3 dB vs calm, laugh+sigh on cue, ~$0.009/min |
+| Hindi audio drama | Gemini 3.8 Flash-Lite TTS | natural 4.75/5, acting 4.67/5, whisper −10.3 dB / anger +7.3 dB vs calm, laugh+sigh on cue, ~$0.015/min (see pricing note) |
 | Low-latency Hindi bot | Cartesia Sonic 3.6 | 0.48 s to first audio from India (median of 3), numbers 100%, kids line 5/5 |
 | Indian provider | Sarvam Bulbul v3 | numbers 100%, calm narration 5/5; no acting; romanised Hinglish weak |
 | Open weights on a 16 GB Mac | VoxCPM2 (Apache-2.0) | natural 4.0/5 but ~8× slower than real time; Kokoro is fast but robotic in Hindi |
@@ -35,6 +35,11 @@ Other findings: ElevenLabs v3 measurably acts (−4.4 / +5.9 dB) but the AI list
 ElevenLabs ends clips abruptly (all words present, no tail room). Cloning from a 12 s clip was weak for every model.
 No model lost clarity on an 8 kHz phone line. The transcriber sometimes writes heard Hindi in Urdu script — those clips
 are excluded from error rates, not counted as model errors. Public leaderboards test English only.
+
+### Pricing note (checked 28 Sep 2026)
+Gemini TTS is billed per audio token. Google's pricing page says "25 tokens per second of audio", but Google's own usage
+meter on our 20 calls reported 37–41 output tokens per second (`receipts.jsonl`, field `usage`). Per-minute costs here use
+the measured rate. Per-character prices use 650 Hindi characters per spoken minute, measured on our clips.
 
 ## Run it
 ```bash
